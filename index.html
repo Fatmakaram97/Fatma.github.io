@@ -57,7 +57,7 @@
 
         p{
             font-size: 20px;
-            margin-bottom: 10px;
+            padding-bottom: 10px;
 
         }
         .summary_paragraph{
@@ -68,10 +68,71 @@
             font-size: 25px;
             text-align: center;
         }
+
+
+
+
+        /* Popup container - can be anything you want */
+        .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        }
+
+        /* The actual popup */
+        .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+        }
+
+
     </style>
 </head>
 <body>
-    <header>Contact</header>
     <h1>Hello, I'm Fatma Karam, <br> AI engineer and Data Scientist.</h1>
     <!-- <hr> -->
     <h2 class="summary">Summary</h2>
@@ -156,5 +217,23 @@
         <li><a href="https://drive.google.com/file/d/1YYUMQ_1bTXVuZ7LILfrFoEBdax-wxiKZ/view">E-commerce application</a></li>
             <p>Creating an online shop using React.</p>
     </ul>
+
+    <div class="popup" onclick="myFunction()"><button>Contact Me</button> 
+        <span class="popuptext" id="myPopup">
+            <ul>
+                <li>Phone: +201113354781</li>
+                <li>Mail: fatma2karam@gmail.com</li>
+            </ul>
+        </span>
+    </div>
+
+
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
 
 </body>
